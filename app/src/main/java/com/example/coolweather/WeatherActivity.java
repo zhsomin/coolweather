@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.coolweather.gson.Forecast;
 import com.example.coolweather.gson.Weather;
+import com.example.coolweather.service.AutoUpdateService;
 import com.example.coolweather.util.HttpUtil;
 import com.example.coolweather.util.Utility;
 
@@ -230,5 +232,9 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
+
     }
 }
